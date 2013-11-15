@@ -99,11 +99,5 @@ namespace Tester
         }
 
         #endregion
-
-        #region Problem 2
-
-
-
-        #endregion
     }
 }
