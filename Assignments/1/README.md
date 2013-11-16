@@ -35,12 +35,13 @@ The objective of the second part of the assignment is to exercise your program d
 up Problem2.cs and follow the instructions in the comments for each class. This exercise is particularly
 open ended, so be creative. Try to build out as robust an object model as you can think of--and be sure
 to use properties, fields, and methods as you see fit. We're not actually going to execute this code, but 
-make sure it at least compiles.
+please make sure it compiles.
 
 ### Problem 3
 Finally, in the last part of the assignment you will be finishing out a simple TicTacToe implementation
 that I started. Take a look at the code inside the TicTacToe project and familiarize yourself with what's
 going on. Then, implement the missing pieces in TicTacToeBoard.cs. You can identify these missing pieces
-by looking for ```throws new NotImplementedException``` in the method and property bodies.
+by looking for ```throws new NotImplementedException``` in the method and property bodies. In the end, you
+should have a working two player TicTacToe game.
 
 [1]: http://msdn.microsoft.com/en-us/library/hh270865.aspx
