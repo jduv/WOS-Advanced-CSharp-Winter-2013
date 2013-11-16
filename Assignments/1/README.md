@@ -6,7 +6,7 @@ directories along the way):
 
 C:\...\GitHub\WOS-Advanced-CSharp-Winter-2013\Submissions\1\yourName\
 
-Please do not change the source code inside the root directory. You should instead commit your own copy
+Please do not change the source code inside the root assignment directory. You should instead commit your own copy
 into the submissions directory, and replace "yourName" above with a first initial then last name format.
 For example, my submission would be located at:
 
