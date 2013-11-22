@@ -27,8 +27,8 @@ namespace Problems
 
         #region Properties
 
-        public double X { get { return this.x; }}
-        public double Y { get { return this.y; }}
+        public double X { get { return this.x; } }
+        public double Y { get { return this.y; } }
 
         #endregion
     }

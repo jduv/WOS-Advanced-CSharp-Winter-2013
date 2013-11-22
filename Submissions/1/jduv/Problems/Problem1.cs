@@ -24,7 +24,8 @@ namespace Problems
         /// </returns>
         public PointClass ReturnADoubledPointClass(PointClass pointClass)
         {
-            throw new NotImplementedException();
+            var myNewPoint = new PointClass(pointClass.X * 2, pointClass.Y * 2);
+            return myNewPoint;
         }
 
         /// <summary>
@@ -35,7 +36,9 @@ namespace Problems
         /// modify the class and have the changes stick--something that's impossible to do with
         /// structs unless we pass the new value out of the method.
         /// </summary>
-        /// <param name="pointClass"></param>
+        /// <param name="pointClass">
+        /// The target point class to double.
+        /// </param>
         public void DoubleTheTargetPointClass(PointClass pointClass)
         {
             throw new NotImplementedException();
@@ -68,9 +71,9 @@ namespace Problems
         /// <returns>
         /// The modified point struct whose X and Y values are double those of the input.
         /// </returns>
-        public MutablePointStruct DoubleTheTargetPointStruct(MutablePointStruct pointStruct)
-        {
-            throw new NotImplementedException();
+        public MutablePointStruct DoubleTheTargetPointStruct(MutablePointStruct pointStruct) {
+            var myNewStruct = new MutablePointStruct(pointStruct.X * 2, pointStruct.Y * 2);
+            return myNewStruct;
         }
 
         /// <summary>
