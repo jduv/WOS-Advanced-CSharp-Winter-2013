@@ -24,8 +24,8 @@ namespace Tester
             // Assert truths.
             Assert.IsNotNull(result);
             Assert.AreNotSame(result, pointClass);
-            Assert.AreEqual(x * 2, pointClass.X);
-            Assert.AreEqual(y * 2, pointClass.Y);
+            Assert.AreEqual(x * 2, result.X);
+            Assert.AreEqual(y * 2, result.Y);
         }
 
         [TestMethod]
@@ -78,7 +78,6 @@ namespace Tester
             var result = target.DoubleTheTargetPointStruct(pointStruct);
 
             // Assert truths.
-            Assert.AreSame(result, pointStruct);
             Assert.AreEqual(x * 2, result.X);
             Assert.AreEqual(y * 2, result.Y);
         }
