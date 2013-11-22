@@ -93,9 +93,30 @@
         /// </returns>
         public override string ToString()
         {
-            throw new NotImplementedException();
-        }
+            string board = "";
+            for (int i = 1; i <= moves.Length; i++)
+            {
+                board += " | ";
+                switch (moves[i - 1])
+                {
+                    case Move.X:
+                        board += "X";
+                        break;
+                    case Move.O:
+                        board += "O";
+                        break;
+                    case Move.Undefined:
+                        board += i;
+                        break;
+                }
 
+                if (i % 3 == 0)
+                {
+                    board += " | " + System.Environment.NewLine;
+                }
+            }
+            return board;
+        }
         #endregion
 
         #region Private Methods
