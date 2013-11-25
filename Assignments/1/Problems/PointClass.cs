@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Problems
 {
     public class PointClass
     {
         #region Fields & Constants
 
-        private readonly double x;
-        private readonly double y;
+        private double x;
+        private double y;
 
         #endregion
 
@@ -27,8 +22,8 @@ namespace Problems
 
         #region Properties
 
-        public double X { get { return this.x; } }
-        public double Y { get { return this.y; } }
+        public double X { get { return this.x; } set { this.x = value; } }
+        public double Y { get { return this.y; } set { this.y = value; } }
 
         #endregion
     }

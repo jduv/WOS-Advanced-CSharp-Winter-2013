@@ -28,7 +28,7 @@
     {
         #region Fields & Constants
 
-        private static readonly int[,] PossibleWins = new int[,] { { 0, 1, 2 }, { 3, 4, 5 }, { 6, 7, 8 }, {0, 3, 6}, {1, 4, 7}, {2, 5, 8}, { 0, 4, 8 }, { 2, 4, 6 } };
+        private static readonly int[,] PossibleWins = new int[,] { { 0, 1, 2 }, { 3, 4, 5 }, { 6, 7, 8 }, { 0, 3, 6 }, { 1, 4, 7 }, { 2, 5, 8 }, { 0, 4, 8 }, { 2, 4, 6 } };
         private Move[] moves = new Move[9];
         private Move? winner = null;
 
@@ -38,7 +38,11 @@
 
         public TicTacToeBoard()
         {
-            throw new NotImplementedException();
+            // Initialize the board.
+            for (int i = 0; i < moves.Length; i++)
+            {
+                this.moves[i] = Move.Undefined;
+            }
         }
 
         #endregion
@@ -63,7 +67,16 @@
         {
             get
             {
-                throw new NotImplementedException();
+                bool hasMovesLeft = false;
+                for (int i = 0; i < this.moves.Length; i++)
+                {
+                    if (this.moves[i] == Move.Undefined)
+                    {
+                        hasMovesLeft = true;
+                        break;
+                    }
+                }
+                return hasMovesLeft;
             }
         }
 
@@ -82,7 +95,21 @@
         /// </param>
         public void MakeMove(int slot, Move move)
         {
-            throw new NotImplementedException();
+            if (slot < 1 || slot > 9)
+            {
+                throw new IndexOutOfRangeException("Slot numbers must be between 1 and 9");
+            }
+
+            var index = slot - 1;
+            if (moves[index] == Move.Undefined)
+            {
+                this.moves[index] = move;
+                this.winner = this.CheckForWinner();
+            }
+            else
+            {
+                throw new ArgumentException("Someone already moved there!");
+            }
         }
 
         /// <summary>
@@ -136,7 +163,7 @@
                 int sum = 0;
                 for (int j = 0; j < PossibleWins.GetLength(1); j++)
                 {
-                    var currentMove = this.moves[PossibleWins[i,j]];
+                    var currentMove = this.moves[PossibleWins[i, j]];
                     sum += GetWeightForMove(currentMove);
                 }
 
@@ -172,10 +199,10 @@
         /// <returns>
         /// An integer value weight for the move.
         /// </returns>
-        private int GetWeightForMove(Move move) 
+        private int GetWeightForMove(Move move)
         {
             int value = 0;
-            switch(move) 
+            switch (move)
             {
                 case Move.X:
                     value = 1;

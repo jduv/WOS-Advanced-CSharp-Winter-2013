@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Problems
 {
     /// <summary>
@@ -41,7 +36,8 @@ namespace Problems
         /// </param>
         public void DoubleTheTargetPointClass(PointClass pointClass)
         {
-            throw new NotImplementedException();
+            pointClass.X *= 2;
+            pointClass.Y *= 2;
         }
 
         /// <summary>
@@ -57,7 +53,7 @@ namespace Problems
         /// </returns>
         public PointStruct ReturnADoubledPointStruct(PointStruct pointStruct)
         {
-            throw new NotImplementedException();
+            return new PointStruct(pointStruct.X * 2, pointStruct.Y * 2);
         }
 
         /// <summary>
@@ -71,7 +67,8 @@ namespace Problems
         /// <returns>
         /// The modified point struct whose X and Y values are double those of the input.
         /// </returns>
-        public MutablePointStruct DoubleTheTargetPointStruct(MutablePointStruct pointStruct) {
+        public MutablePointStruct DoubleTheTargetPointStruct(MutablePointStruct pointStruct)
+        {
             var myNewStruct = new MutablePointStruct(pointStruct.X * 2, pointStruct.Y * 2);
             return myNewStruct;
         }
@@ -87,9 +84,7 @@ namespace Problems
         /// </returns>
         public MutablePointStruct FindTheBug(MutablePointStruct pointStruct)
         {
-            pointStruct.X *= 2;
-            pointStruct.Y *= 2;
-            return pointStruct;
+            return new MutablePointStruct(pointStruct.X * 2, pointStruct.Y * 2);
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Problems;
 
 namespace Tester
@@ -61,8 +60,8 @@ namespace Tester
             // Assert truths.
             Assert.IsNotNull(result);
             Assert.AreNotSame(result, pointStruct);
-            Assert.AreEqual(x * 2, pointStruct.X);
-            Assert.AreEqual(y * 2, pointStruct.Y);
+            Assert.AreEqual(x * 2, result.X);
+            Assert.AreEqual(y * 2, result.Y);
         }
 
         [TestMethod]
@@ -92,8 +91,8 @@ namespace Tester
             var pointStruct = new MutablePointStruct() { X = x, Y = y };
             var result = target.FindTheBug(pointStruct);
 
-            Assert.AreEqual(x * 2, pointStruct.X);
-            Assert.AreEqual(y * 2, pointStruct.Y);
+            Assert.AreEqual(x * 2, result.X);
+            Assert.AreEqual(y * 2, result.Y);
             Assert.AreNotSame(pointStruct, result);
         }
 
