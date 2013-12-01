@@ -1,6 +1,6 @@
-﻿namespace TicTacToe
+﻿using System;
+namespace TicTacToe
 {
-    using System;
 
     /// <summary>
     /// Enum for representing the kinds of moves players can make.

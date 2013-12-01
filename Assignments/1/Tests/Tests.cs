@@ -15,8 +15,8 @@ namespace Tester
             var target = new Problem1();
 
             // Set up the test
-            int x = 5;
-            int y = 10;
+            int x = 590;
+            int y = 37;
             var pointClass = new PointClass(x, y);
             var result = target.ReturnADoubledPointClass(pointClass);
 
