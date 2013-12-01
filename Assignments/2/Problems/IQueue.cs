@@ -18,7 +18,8 @@
         void Enqueue(T toQueue);
 
         /// <summary>
-        /// Removes the first item on the Queue and removes it.
+        /// Removes the first item on the Queue and removes it. If the queue is empty, it should return the
+        /// default value for the type it's holding.
         /// </summary>
         /// <returns>
         /// The removed item.

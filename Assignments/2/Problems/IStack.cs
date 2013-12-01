@@ -20,7 +20,8 @@
         void Push(T toPush);
 
         /// <summary>
-        /// Removes the last item added to the stack and returns it.
+        /// Removes the last item added to the stack and returns it. If the stack is empty, it should return
+        /// the default value for the type it's holding.
         /// </summary>
         /// <returns></returns>
         T Pop();

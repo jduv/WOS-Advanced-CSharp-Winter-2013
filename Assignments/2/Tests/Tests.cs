@@ -85,11 +85,11 @@
 
             // test three different random numbers between 1 and 10000.
             var x = random.Next(1, 10000);
-            Assert.AreEqual((x * (x - 1)) / 2, target.Sum(x));
+            Assert.AreEqual((x * (x + 1)) / 2, target.Sum(x));
             x = random.Next(1, 10000);
-            Assert.AreEqual((x * (x - 1)) / 2, target.Sum(x));
+            Assert.AreEqual((x * (x + 1)) / 2, target.Sum(x));
             x = random.Next(1, 10000);
-            Assert.AreEqual((x * (x - 1)) / 2, target.Sum(x));
+            Assert.AreEqual((x * (x + 1)) / 2, target.Sum(x));
         }
 
         [TestMethod]
@@ -164,6 +164,8 @@
             Assert.AreEqual(Hello, stack.Pop());
 
             Assert.AreEqual(0, stack.Count);
+
+            Assert.AreEqual(default(string), stack.Pop());
         }
 
         [TestMethod]
@@ -186,6 +188,8 @@
             Assert.AreEqual(TestDoubles[0], stack.Pop());
 
             Assert.AreEqual(0, stack.Count);
+
+            Assert.AreEqual(default(double), stack.Pop());
         }
 
         [TestMethod]
@@ -195,19 +199,23 @@
             stack.Push(TestPoints[0]);
             stack.Push(TestPoints[1]);
             stack.Push(TestPoints[2]);
+            stack.Push(null); // Test out pushing null.
             stack.Push(TestPoints[3]);
             stack.Push(TestPoints[4]);
 
-            Assert.AreEqual(5, stack.Count);
+            Assert.AreEqual(6, stack.Count);
 
             // Every time we test Pop, we're removing an element from the stack.
             Assert.IsTrue(TestPoints[4].Equals(stack.Pop()));
-            Assert.IsTrue(TestPoints[2].Equals(stack.Pop()));
             Assert.IsTrue(TestPoints[3].Equals(stack.Pop()));
+            Assert.AreEqual(null, stack.Pop());
+            Assert.IsTrue(TestPoints[2].Equals(stack.Pop()));
             Assert.IsTrue(TestPoints[1].Equals(stack.Pop()));
             Assert.IsTrue(TestPoints[0].Equals(stack.Pop()));
 
             Assert.AreEqual(0, stack.Count);
+
+            Assert.AreEqual(default(Point), stack.Pop());
         }
 
         [TestMethod]
@@ -230,6 +238,8 @@
             Assert.AreEqual(Jduv, queue.Dequeue());
 
             Assert.AreEqual(0, queue.Count);
+
+            Assert.AreEqual(default(string), queue.Dequeue());
         }
 
         [TestMethod]
@@ -252,6 +262,8 @@
             Assert.AreEqual(TestDoubles[4], queue.Dequeue());
 
             Assert.AreEqual(0, queue.Count);
+
+            Assert.AreEqual(default(double), queue.Dequeue());
         }
 
         [TestMethod]
@@ -261,19 +273,23 @@
             queue.Enqueue(TestPoints[0]);
             queue.Enqueue(TestPoints[1]);
             queue.Enqueue(TestPoints[2]);
+            queue.Enqueue(null); // Test out adding null.
             queue.Enqueue(TestPoints[3]);
             queue.Enqueue(TestPoints[4]);
 
-            Assert.AreEqual(5, queue.Count);
+            Assert.AreEqual(6, queue.Count);
 
             // Every time we test Pop, we're removing an element from the stack.
             Assert.IsTrue(TestPoints[0].Equals(queue.Dequeue()));
             Assert.IsTrue(TestPoints[1].Equals(queue.Dequeue()));
             Assert.IsTrue(TestPoints[2].Equals(queue.Dequeue()));
+            Assert.AreEqual(null, queue.Dequeue());
             Assert.IsTrue(TestPoints[3].Equals(queue.Dequeue()));
             Assert.IsTrue(TestPoints[4].Equals(queue.Dequeue()));
 
             Assert.AreEqual(0, queue.Count);
+
+            Assert.AreEqual(default(Point), queue.Dequeue());
         }
 
         #endregion
