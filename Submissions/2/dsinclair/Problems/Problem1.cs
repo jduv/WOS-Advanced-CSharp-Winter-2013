@@ -35,7 +35,7 @@
         /// True if b divides evenly into a, false otherwise.
         /// </returns>
         public bool IsDivisibleBy(int a, int b)
-        {+
+        {
             if (b == 0) throw new ArgumentException();
             if (b < 0 || a < 0) throw new ArgumentException();
 
