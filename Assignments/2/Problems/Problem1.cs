@@ -48,7 +48,7 @@
         /// <param name="n">
         /// The value to sum up to.
         /// </param>
-        /// <returns>
+        /// <returns>   
         /// The sum of numbers from 1 to n.
         /// </returns>
         public int Sum(int n)
@@ -66,10 +66,10 @@
         /// 2. If the empty string, that is "" or string.Empty is passed, it should return true. The empty
         ///    string can be considered a palindrome.
         /// 3. This method should ignore case and white space--but don't worry about punctuation. For example,
-        ///    if "x X y x X is" passed, then it should return true. However, if "x,x,y,x,x" is passed, it's not. 
-        ///    Ignoring puncutation will greatly simplify the problem.
+        ///    if "x X y x X is" passed, then it should return true. However, if "x,x,y,x,x" is passed, the method should return
+        ///    false.  Ignoring puncutation will greatly simplify the problem.
         ///    
-        /// Hint: Thing about how a palindrome is basically the same thing forwards and backwards. You can access a
+        /// Hint: Think about how a palindrome is basically the same thing forwards and backwards. You can access a
         /// string just as if it were an array of characters. So, if you had the string toCheck = xxyxxx then you could
         /// use toCheck[0] = x, and compare that with toCheck[4] = x, then decrement both counters and so forth.
         /// </summary>
