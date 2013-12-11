@@ -36,7 +36,12 @@
         /// </returns>
         public bool IsDivisibleBy(int a, int b)
         {
-            throw new NotImplementedException();
+            if (a < 0) throw new ArgumentException();
+            if (b==0) throw new ArgumentException();
+            if (a % b == 0) throw new ArgumentException();
+
+            else return false;
+
         }
 
         /// <summary>
@@ -53,7 +58,18 @@
         /// </returns>
         public int Sum(int n)
         {
-            throw new NotImplementedException();
+            if (n < 0) throw new ArgumentException();
+
+            while(n )
+            {
+                return Sum(n);
+            }
+
+            if (n == 0)
+            {
+                return 0;
+            }
+            else return Sum(n);
         }
 
         /// <summary>
