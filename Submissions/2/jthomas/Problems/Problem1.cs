@@ -34,18 +34,19 @@
                     return 0;
                 }
                 else
+                    
                     return Sum(n);
-
+                }
 
             }
             
             
         
 
-        public bool IsPalindrome(string toCheck)
-        {
-            throw new NotImplementedException();
-        }
+       public bool IsPalindrome(string toCheck)
+       {
+           throw new NotImplementedException();
+       }
 
 
 
