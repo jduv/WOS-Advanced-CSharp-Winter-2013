@@ -36,12 +36,11 @@
         /// </returns>
         public bool IsDivisibleBy(int a, int b)
         {
-            if (a < 0) throw new ArgumentException();
-            if (b==0) throw new ArgumentException();
-            if (a % b == 0) throw new ArgumentException();
+            if(b == 0) throw new ArgumentException();
+            if(a < 0 || b < 0) throw new ArgumentException();
+            if(a % b == 0) return true;
 
             else return false;
-
         }
 
         /// <summary>
@@ -59,11 +58,6 @@
         public int Sum(int n)
         {
             if (n < 0) throw new ArgumentException();
-
-            else if(n > 0)
-            {
-                return Sum(n);
-            }
 
             if (n == 0)
             {
