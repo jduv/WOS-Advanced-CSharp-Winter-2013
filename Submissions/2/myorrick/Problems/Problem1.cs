@@ -60,7 +60,7 @@
         {
             if (n < 0) throw new ArgumentException();
 
-            while(n )
+            else if(n > 0)
             {
                 return Sum(n);
             }
