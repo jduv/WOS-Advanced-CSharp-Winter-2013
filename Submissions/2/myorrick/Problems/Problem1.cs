@@ -91,7 +91,10 @@
         /// </returns>
         public bool IsPalindrome(string toCheck)
         {
-            throw new NotImplementedException();
+    
+            if (toCheck == null) throw new ArgumentNullException();
+            if (toCheck == string.Empty) return true;
+            else return false;
         }
 
 
