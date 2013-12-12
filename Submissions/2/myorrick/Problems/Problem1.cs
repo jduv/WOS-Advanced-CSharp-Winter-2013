@@ -63,6 +63,12 @@
             {
                 return 0;
             }
+
+                if(n >= 1)
+                {
+                    return Sum(n);
+                }
+
             else return Sum(n);
         }
 
@@ -93,7 +99,9 @@
         {
     
             if (toCheck == null) throw new ArgumentNullException();
+           
             if (toCheck == string.Empty) return true;
+            
             else return false;
         }
 
