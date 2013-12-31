@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+    using System.Text.RegularExpressions;
 
     /// <summary>
     /// Complete the methods below given the specifications in the comments.
@@ -37,8 +38,7 @@
         /// </returns>
         public bool IsDivisibleBy(int a, int b)
         {
-
-            if (a < 0 || b < 0)
+            if (a < 0 || b <= 0)
             {
                 throw new ArgumentException();
             }
@@ -60,13 +60,16 @@
         /// </returns>
         public int Sum(int n)
         {
-            return (n*(n+1))/2;
-
-
+            if (n < 0)
+            {
+                throw new ArgumentException();
             }
 
-            
-        
+            return (n * (n + 1)) / 2;
+        }
+
+
+
 
         /// <summary>
         /// A palindrome is a sentence or string that's the exact same forwards and backwards. For example, the
@@ -93,19 +96,19 @@
         /// </returns>
         public bool IsPalindrome(string toCheck)
         {
-            
-            if (toCheck == null){
-                throw new ArgumentNullException();
-    
-        }
-
-            int check = toCheck.Length;
-            for (int i = 0; i < check / 2; i++)
+            if (toCheck == null)
             {
-                if (toCheck[i] != toCheck[check - i - 1])
-                    return false;
+                throw new ArgumentNullException();
             }
-            return true;
+
+            // Make all characters lowercase.
+            var lowered = toCheck.ToLower();
+
+            // use regex to remove all whitespace.
+            var trimmed = Regex.Replace(lowered, @"\s+", "");
+
+            // Now check it.
+            return trimmed.SequenceEqual(trimmed.Reverse());
         }
 
 

@@ -1,6 +1,7 @@
 ﻿namespace Problems
 {
     using System;
+    using System.Linq;
 
     /// <summary>
     /// Complete the methods below given the specifications in the comments.
@@ -36,7 +37,12 @@
         /// </returns>
         public bool IsDivisibleBy(int a, int b)
         {
-            throw new NotImplementedException();
+            if (a < 0 || b <= 0)
+            {
+                throw new ArgumentException();
+            }
+
+            return a % b == 0;
         }
 
         /// <summary>
@@ -53,7 +59,7 @@
         /// </returns>
         public int Sum(int n)
         {
-            throw new NotImplementedException();
+            return (n * (n + 1)) / 2;
         }
 
         /// <summary>
@@ -81,7 +87,12 @@
         /// </returns>
         public bool IsPalindrome(string toCheck)
         {
-            throw new NotImplementedException();
+            if (toCheck == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            return toCheck.SequenceEqual(toCheck.Reverse());
         }
 
 

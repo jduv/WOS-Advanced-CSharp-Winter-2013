@@ -1,12 +1,19 @@
-﻿namespace Problems
+﻿using System.Collections.Generic;
+namespace Problems
 {
     public class MyStack<T> : IStack<T>
     {
+        #region Fields & Constants
+
+        private IList<T> backingList = new List<T>();
+
+        #endregion
+
         #region Properties
 
         public int Count
         {
-            get { throw new System.NotImplementedException(); }
+            get { return this.backingList.Count; }
         }
 
         #endregion
@@ -15,12 +22,21 @@
 
         public void Push(T toPush)
         {
-            throw new System.NotImplementedException();
+            this.backingList.Add(toPush);
         }
 
         public T Pop()
         {
-            throw new System.NotImplementedException();
+            if (this.Count == 0)
+            {
+                return default(T);
+            }
+            else
+            {
+                var toReturn = this.backingList[this.backingList.Count - 1];
+                this.backingList.RemoveAt(this.backingList.Count - 1);
+                return toReturn;
+            }
         }
 
         #endregion

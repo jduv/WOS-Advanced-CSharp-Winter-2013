@@ -14,11 +14,11 @@
         /// <summary>
         /// Adds an item to the top of the Queue.
         /// </summary>
-        /// <param name="toQueue"></param>
+        /// <param name="toQueue">The item to put into the Q</param>
         void Enqueue(T toQueue);
 
         /// <summary>
-        /// Removes the first item on the Queue and removes it. If the queue is empty, it should return the
+        /// Gets the first item on the Queue and returns it. If the queue is empty, it should return the
         /// default value for the type it's holding.
         /// </summary>
         /// <returns>
