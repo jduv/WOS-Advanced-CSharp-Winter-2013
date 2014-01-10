@@ -30,6 +30,10 @@
 
         public SecondChangedHandler OnSecondChanged;
 
+        public delegate void FiveSecondChangedHandler(ITimer timer);
+
+        public FiveSecondChangedHandler OnFiveSeconds;
+
         #endregion
 
         #region Properties
@@ -56,7 +60,13 @@
                 if (this.secondsElapsed != secondsElapsed)
                 {
                     // Fire event
-                    this.secondsElapsed = secondsElapsed;
+                    this.secondsElapsed++;
+
+                    if (this.secondsElapsed % 5 == 0)
+                    {
+                        this.InvokeFiveSecondsChanged();
+                    }
+
                     this.InvokeSecondChanged();
                 }
             }
@@ -71,6 +81,14 @@
             if (this.OnSecondChanged != null)
             {
                 this.OnSecondChanged(this);
+            }
+        }
+
+        private void InvokeFiveSecondsChanged()
+        {
+            if (this.OnFiveSeconds != null)
+            {
+                this.OnFiveSeconds(this);
             }
         }
 
