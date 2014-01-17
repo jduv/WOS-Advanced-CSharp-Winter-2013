@@ -63,7 +63,7 @@ namespace DocumentStatistics
                         i++;
                     }
 
-                    word = toCount.Substring(lastSpaceIndex, i - lastSpaceIndex);
+                    word = StripPunctuation(toCount.Substring(lastSpaceIndex, i - lastSpaceIndex));
 
                     if (!wordDictionary.ContainsKey(word))
                     {
@@ -77,6 +77,25 @@ namespace DocumentStatistics
             }
 
             return wordDictionary;
+        }
+
+        private static string StripPunctuation(string toStrip)
+        {
+            string stripped = "";
+            foreach (var character in toStrip)
+            {
+                if (IsValidCharacter(character))
+                {
+                    stripped += character;
+                }
+            }
+
+            return stripped;
+        }
+
+        private static bool IsValidCharacter(char toCheck)
+        {
+            return char.IsLetter(toCheck) || "'".Equals(toCheck.ToString()) || char.IsDigit(toCheck) || "-".Equals(toCheck.ToString());
         }
 
         #endregion

@@ -2,6 +2,7 @@
 {
     using System;
     using System.IO;
+    using System.Linq;
 
     public class Program
     {
@@ -14,8 +15,11 @@
                 if (File.Exists(filePath))
                 {
                     var lines = File.ReadAllText(filePath);
-                    var myCounter = new WordCounter(lines);
-                    Console.WriteLine("There are " + myCounter.Words + " words in the file " + filePath);
+                    var myCounter = new CommonWordCounter(lines);
+                    Console.WriteLine("There are " + myCounter.WordDictionary.Count + " ujnique words in the file " + filePath);
+
+                    var listOfWords = myCounter.WordDictionary.ToList().Select(x => new { Count = x.Value, Word = x.Key }).ToList();
+                    var sortedList = listOfWords.OrderByDescending(x => x.Count).ToList();
                 }
                 else
                 {
