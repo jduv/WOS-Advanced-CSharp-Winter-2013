@@ -16,7 +16,7 @@
                 {
                     var lines = File.ReadAllText(filePath);
                     var myCounter = new CommonWordCounter(lines);
-                    Console.WriteLine("There are " + myCounter.WordDictionary.Count + " ujnique words in the file " + filePath);
+                    Console.WriteLine("There are " + myCounter.WordDictionary.Count + " unique words in the file " + filePath);
 
                     var listOfWords = myCounter.WordDictionary.ToList().Select(x => new { Count = x.Value, Word = x.Key }).ToList();
                     var sortedList = listOfWords.OrderByDescending(x => x.Count).ToList();
@@ -31,5 +31,11 @@
                 Console.WriteLine("Not enough arguments, or too many.");
             }
         }
+    }
+
+    private class WordCount
+    {
+        public int Count { get; set; }
+        public string Word { get; set; }
     }
 }
