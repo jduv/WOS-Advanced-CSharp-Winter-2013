@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     public class TextFileBasedEmployeeDatabase : IEmployeeDatabase
     {
@@ -99,22 +100,48 @@
 
         public IEnumerable<Employee> GetEmployeesBySortOrder(SortOrder order)
         {
-            throw new System.NotImplementedException();
+            IEnumerable<Employee> returnList;
+            switch (order)
+            {
+                case SortOrder.Age:
+                    returnList = this.list.OrderByDescending(x => x.Age);
+                    break;
+                case SortOrder.BySalary:
+                    returnList = this.list.OrderByDescending(x => x.Salary);
+                    break;
+                case SortOrder.JobTitle:
+                    returnList = this.list.OrderBy(x => x.JobTitle);
+                    break;
+                case SortOrder.AlphabeticalByFirstName:
+                    returnList = this.list.OrderBy(x => x.FirstName);
+                    break;
+                case SortOrder.AlphabeticalByLastName:
+                    returnList = this.list.OrderBy(x => x.LastName);
+                    break;
+                default:
+                    returnList = Enumerable.Empty<Employee>();
+                    break;
+            }
+            return returnList;
         }
 
         public void Add(Employee toAdd)
         {
-            throw new System.NotImplementedException();
+            if (toAdd != null)
+            {
+                this.list.Add(toAdd);
+            }
         }
 
-        public void Remove(Employee toRemove)
+        public void Remove(int id)
         {
-            throw new System.NotImplementedException();
+            Employee hit = this.list.Where(x => x.Id == id).Single();
+            this.list.Remove(hit);
         }
 
-        public void Get(int id)
+        public Employee Get(int id)
         {
-            throw new System.NotImplementedException();
+            return this.list.Where(x => x.Id == id).Single();
         }
 
         #endregion

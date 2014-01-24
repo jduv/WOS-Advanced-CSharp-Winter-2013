@@ -12,7 +12,8 @@ namespace Examples.EmployeeDatabase
                 var path = args[0];
                 if (File.Exists(path))
                 {
-                    var lines = File.ReadAllLines(path);
+                    var lines = File.ReadAllText(path);
+                    var myDb = new TextFileBasedEmployeeDatabase(lines);
                 }
             }
         }

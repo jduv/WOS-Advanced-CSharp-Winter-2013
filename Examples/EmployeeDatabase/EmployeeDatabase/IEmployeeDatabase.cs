@@ -27,9 +27,9 @@
 
         void Add(Employee toAdd);
 
-        void Remove(Employee toRemove);
+        void Remove(int id);
 
-        void Get(int id);
+        Employee Get(int id);
 
         #endregion
     }

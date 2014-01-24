@@ -61,7 +61,7 @@
             }
         }
 
-        public string Description
+        public string JobTitle
         {
             get
             {
