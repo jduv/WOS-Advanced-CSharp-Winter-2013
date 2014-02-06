@@ -1,12 +1,23 @@
-﻿namespace Problems
+﻿using System.Collections.Generic;
+namespace Problems
 {
+    
     public class MyQueue<T> : IQueue<T>
     {
+
+        #region Fields and Constants
+
+        private readonly IList<T> q = new List<T>();
+
         #region Properties
 
         public int Count
         {
-            get { throw new System.NotImplementedException(); }
+            get 
+            {
+                return this.q.Count;
+
+            }
         }
 
         #endregion
@@ -15,14 +26,30 @@
 
         public void Enqueue(T toQueue)
         {
-            throw new System.NotImplementedException();
+            this.q.Add(toQueue);
+
         }
 
         public T Dequeue()
         {
-            throw new System.NotImplementedException();
+            
+
+            if(this.Count == 0)
+            {
+                return default(T);
+
+            }
+            else
+            {
+                var toReturn = this.q[0];
+                this.q.RemoveAt(0);
+                return toReturn;
+            }
+            
+
         }
 
         #endregion
     }
 }
+        #endregion
