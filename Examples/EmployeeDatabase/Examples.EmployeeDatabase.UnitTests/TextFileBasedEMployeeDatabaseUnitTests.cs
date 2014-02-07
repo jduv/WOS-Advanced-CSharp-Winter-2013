@@ -59,11 +59,8 @@ namespace Examples.EmployeeDatabase.UnitTests
             var objectWeAreTesting = new TextFileBasedEmployeeDatabase(TestEmployees);
             var resultList = objectWeAreTesting.GetEmployeesBySortOrder(SortOrder.AlphabeticalByFirstName);
 
-            {
-                //String firstName = String.Equals(objectWeAreTesting.GetEmployeesBySortOrder(SortOrder.AlphabeticalByFirstName);
-                Assert.AreEqual("David", objectWeAreTesting.GetEmployeesBySortOrder(SortOrder.AlphabeticalByFirstName));
-
-            }
+            var listOfEmployees = objectWeAreTesting.GetEmployeesBySortOrder(SortOrder.AlphabeticalByFirstName).ToList();
+            Assert.AreEqual("David", listOfEmployees[0].FirstName);
         }
     }
 }
