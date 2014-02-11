@@ -39,6 +39,22 @@ namespace Examples.EmployeeDatabase.UnitTests
             objectWeAreTesting.Remove(1);
         }
 
+
+        [TestMethod]
+        public void SortOrder_FirstName_HasCorrectOrder()
+        {
+            var objectWeAreTesting = new TextFileBasedEmployeeDatabase(TestEmployees);
+            var resultList = objectWeAreTesting.GetEmployeesBySortOrder(SortOrder.AlphabeticalByFirstName);
+
+            String firstName = String.Compare("David",1,"David",5);
+
+            foreach (var employee in resultList)
+            {
+                Assert.IsTrue(firstName = employee.FirstName);
+                firstName = employee.FirstName;
+            }
+
+
         [TestMethod]
         public void SortOrder_BySalary_HasCorrectOrder()
         {
@@ -51,16 +67,8 @@ namespace Examples.EmployeeDatabase.UnitTests
                 Assert.IsTrue(lastSalary >= employee.Salary);
                 lastSalary = employee.Salary;
             }
+          
 
-        }
-        [TestMethod]
-        public void SortOrder_firstName_HasCorrectOrder()
-        {
-            var objectWeAreTesting = new TextFileBasedEmployeeDatabase(TestEmployees);
-            var resultList = objectWeAreTesting.GetEmployeesBySortOrder(SortOrder.AlphabeticalByFirstName);
-
-            var listOfEmployees = objectWeAreTesting.GetEmployeesBySortOrder(SortOrder.AlphabeticalByFirstName).ToList();
-            Assert.AreEqual("David", listOfEmployees[0].FirstName);
         }
     }
 }
