@@ -6,6 +6,10 @@ namespace Examples.EmployeeDatabase
     {
         static void Main(string[] args)
         {
+            int[,] mymultidim = new int[3, 4];
+
+            int[][] mymultidim2 = new int[3][];
+
             // We assume that we're passed a file path
             if (args.Length == 1)
             {
